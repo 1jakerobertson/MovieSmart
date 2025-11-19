@@ -1,9 +1,13 @@
+import pandas as pd
 
-def print_hi(name):
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+# Sample DataFrame
+df = pd.DataFrame({
+    'col1': ['A', 'B', 'C'],
+    'col2': ['1', '2', '3'],
+    'col3': ['X', 'Y', 'Z']
+})
 
+# Join the columns using a separator (e.g., '-')
+df['new_col'] = df['col1'].str.cat(df['col2'], sep='-').str.cat(df['col3'], sep='-')
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('Jake')
-
+print(df)
