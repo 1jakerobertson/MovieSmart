@@ -1,13 +1,14 @@
-import pandas as pd
+import numpy as np
 
-# Sample DataFrame
-df = pd.DataFrame({
-    'col1': ['A', 'B', 'C'],
-    'col2': ['1', '2', '3'],
-    'col3': ['X', 'Y', 'Z']
-})
+# Create a 1D NumPy array (representing your 1D vector/data)
+one_d_vector = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9])
 
-# Join the columns using a separator (e.g., '-')
-df['new_col'] = df['col1'].str.cat(df['col2'], sep='-').str.cat(df['col3'], sep='-')
+# Reshape it into a 2D array (e.g., a 3x3 matrix)
+# The -1 in reshape automatically calculates the dimension
+# based on the other specified dimension.
+two_d_sensor = one_d_vector.reshape((3, -1))
 
-print(df)
+print("Original 1D vector:")
+print(one_d_vector)
+print("\nConverted 2D 'sensor' representation:")
+print(two_d_sensor)
